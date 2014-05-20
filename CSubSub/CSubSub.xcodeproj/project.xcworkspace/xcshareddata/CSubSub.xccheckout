@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>58D6230F-A164-42D3-897D-7A0BB9E80146</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CSubSub</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9C651EBC-48F5-46E1-83AD-19220C345E64</key>
+		<string>https://github.com/plter/CSubSub.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CSubSub/CSubSub.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9C651EBC-48F5-46E1-83AD-19220C345E64</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/plter/CSubSub.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9C651EBC-48F5-46E1-83AD-19220C345E64</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9C651EBC-48F5-46E1-83AD-19220C345E64</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CSubSub</string>
+		</dict>
+	</array>
+</dict>
+</plist>
