@@ -9,6 +9,10 @@
 #ifndef __CSubSub__cssObject__
 #define __CSubSub__cssObject__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -18,7 +22,7 @@ void logOff();
 void logOn();
 void logOut(char * msg);
 
-#define cssClass(name,fields) typedef struct name{fields}name;
+#define cssClass(name) typedef struct name{name##Fields(struct name *)}name;
 #define cssAs(type,object) ((type)(object))
 #define cssAlloc(__class__) cssAs(__class__ *,malloc(sizeof(__class__)))
 #define cssDelloc(object) free(object)
@@ -32,9 +36,12 @@ void logOut(char * msg);
     int (*retainCount)(TYPE _this);\
     void (*onDelloc)(TYPE _this);
 
-cssClass(cssObject,cssObjectFields(struct cssObject *))
+cssClass(cssObject)
 
 cssObject* cssObjectInit(cssObject *_this);
-
+    
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* defined(__CSubSub__cssObject__) */

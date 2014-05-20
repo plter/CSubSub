@@ -166,15 +166,8 @@
 		310CD7B8192A4431004D4327 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				31E1383E192AD7BD006DDF4D /* cssFile.c */,
-				31E1383F192AD7BD006DDF4D /* cssFile.h */,
-				31E13814192AC6F6006DDF4D /* css.h */,
-				31E13836192AD67D006DDF4D /* cssString.c */,
-				31E13837192AD67D006DDF4D /* cssString.h */,
-				31E1383A192AD6D0006DDF4D /* cssObject.c */,
-				31E1383B192AD6D0006DDF4D /* cssObject.h */,
-				31E13842192AD840006DDF4D /* cssList.c */,
-				31E13843192AD841006DDF4D /* cssList.h */,
+				31E1386C192AEE48006DDF4D /* source */,
+				31E1386B192AEE29006DDF4D /* header */,
 			);
 			name = lib;
 			sourceTree = "<group>";
@@ -205,6 +198,29 @@
 				31E1382E192AD437006DDF4D /* E003UsingList.1 */,
 			);
 			path = E003UsingList;
+			sourceTree = "<group>";
+		};
+		31E1386B192AEE29006DDF4D /* header */ = {
+			isa = PBXGroup;
+			children = (
+				31E1383F192AD7BD006DDF4D /* cssFile.h */,
+				31E13837192AD67D006DDF4D /* cssString.h */,
+				31E1383B192AD6D0006DDF4D /* cssObject.h */,
+				31E13843192AD841006DDF4D /* cssList.h */,
+				31E13814192AC6F6006DDF4D /* css.h */,
+			);
+			name = header;
+			sourceTree = "<group>";
+		};
+		31E1386C192AEE48006DDF4D /* source */ = {
+			isa = PBXGroup;
+			children = (
+				31E1383E192AD7BD006DDF4D /* cssFile.c */,
+				31E13836192AD67D006DDF4D /* cssString.c */,
+				31E1383A192AD6D0006DDF4D /* cssObject.c */,
+				31E13842192AD840006DDF4D /* cssList.c */,
+			);
+			name = source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

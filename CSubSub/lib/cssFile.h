@@ -9,6 +9,10 @@
 #ifndef __CSubSub__cssFile__
 #define __CSubSub__cssFile__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "cssObject.h"
 #include "cssString.h"
 
@@ -26,9 +30,13 @@
     cssString* (*getStringContent)(TYPE _this);
 
 
-cssClass(cssFile,cssFileFields(struct cssFile *))
+cssClass(cssFile)
 
 cssFile * cssFileInit(cssFile * _this,cssString * fileName);
 cssFile * cssFileCreate(cssString * fileName);
+    
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* defined(__CSubSub__cssFile__) */

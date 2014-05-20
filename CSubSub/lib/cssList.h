@@ -9,6 +9,10 @@
 #ifndef __CSubSub__cssList__
 #define __CSubSub__cssList__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "cssObject.h"
 
 typedef struct _cssListItem{
@@ -33,7 +37,7 @@ typedef struct _cssListItem{
     void (*onCssObjectDelloc)(TYPE _this); \
     void (*clear)(TYPE _this);
 
-cssClass(cssList,cssListFields(struct cssList *))
+cssClass(cssList)
 
 cssList* cssListInit(cssList * _this);
 cssList * cssListCreate();
@@ -50,5 +54,9 @@ cssList * cssListCreate();
         }\
     }\
 }
+    
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* defined(__CSubSub__cssList__) */
