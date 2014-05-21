@@ -9,7 +9,7 @@
 #include "cssFile.h"
 
 
-static int cssFileOpen(cssFile * _this,char * mode){
+static bool cssFileOpen(cssFile * _this,char * mode){
     
 	if (_this->_currentCFile!=NULL) {
 		fclose(_this->_currentCFile);
@@ -22,9 +22,9 @@ static int cssFileOpen(cssFile * _this,char * mode){
 		fseek(_this->_currentCFile,0,SEEK_END);
 		_this->_size = ftell(_this->_currentCFile);
 		rewind(_this->_currentCFile);
-		return 1;
+		return true;
 	}else{
-		return 0;
+		return false;
 	}
 }
 

@@ -15,6 +15,7 @@ extern "C" {
 
 #include "cssObject.h"
 #include "cssString.h"
+#include <stdbool.h>
 
 #define cssFileFields(TYPE) \
     cssObjectFields(TYPE) \
@@ -24,7 +25,7 @@ extern "C" {
     cssString * _stringContent; \
     cssString * (*getFileName)(TYPE _this); \
     void(*onCssObjectDelloc)(TYPE _this); \
-    int(*open)(TYPE _this,char * mode); \
+    bool(*open)(TYPE _this,char * mode); \
     long(*getSize)(TYPE _this); \
     void(*close)(TYPE _this); \
     cssString* (*getStringContent)(TYPE _this);
