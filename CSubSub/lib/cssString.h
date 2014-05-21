@@ -19,7 +19,7 @@ extern "C" {
     cssObjectFields(TYPE) \
     long _length; \
     char * _cstr; \
-    void(*onCssObjectDelloc)(TYPE _this); \
+    void(*_onCssObjectDelloc)(TYPE _this); \
     long (*getLength)(TYPE _this); \
     char*(*getCString)(TYPE _this); \
     TYPE (*addCssString)(TYPE _this,TYPE _other); \

@@ -34,7 +34,7 @@ typedef struct _cssListItem{
     void (*removeLast)(TYPE _this); \
     void (*remove)(TYPE _this,cssObject* obj); \
     cssObject * (*get)(TYPE _this,long index); \
-    void (*onCssObjectDelloc)(TYPE _this); \
+    void (*_onCssObjectDelloc)(TYPE _this); \
     void (*clear)(TYPE _this);
 
 cssClass(cssList)

@@ -22,7 +22,7 @@ static void cssStringOnDelloc(cssString * _this){
     
 	logOut("Destroy cssString");
     
-	_this->onCssObjectDelloc(_this);
+	_this->_onCssObjectDelloc(_this);
 }
 
 static cssString* cssStringAddCString(cssString * _this,char * _other){
@@ -83,7 +83,7 @@ cssString* cssStringInitWithCString(cssString * _this,char * cstr){
 	cssObjectInit(cssAs(cssObject*,_this));
     
 	//config Delloc functions >>>
-	_this->onCssObjectDelloc = _this->onDelloc;
+	_this->_onCssObjectDelloc = _this->onDelloc;
 	_this->onDelloc = &cssStringOnDelloc;
     
 	//config related c string

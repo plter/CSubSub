@@ -72,7 +72,7 @@ static void cssFileOnDelloc(cssFile *_this){
 		_this->_stringContent->release(_this->_stringContent);
 	}
     
-	_this->onCssObjectDelloc(_this);
+	_this->_onCssObjectDelloc(_this);
 }
 
 static cssString* cssFileGetFileName(cssFile *_this){
@@ -85,7 +85,7 @@ cssFile * cssFileInit(cssFile * _this,cssString * fileName){
     
 	_this->_size = 0;
     
-	_this->onCssObjectDelloc = _this->onDelloc;
+	_this->_onCssObjectDelloc = _this->onDelloc;
 	_this->onDelloc = &cssFileOnDelloc;
     
 	_this->_fileName = fileName;

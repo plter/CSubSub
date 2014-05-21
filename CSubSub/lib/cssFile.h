@@ -24,7 +24,7 @@ extern "C" {
     long _size; \
     cssString * _stringContent; \
     cssString * (*getFileName)(TYPE _this); \
-    void(*onCssObjectDelloc)(TYPE _this); \
+    void(*_onCssObjectDelloc)(TYPE _this); \
     bool(*open)(TYPE _this,char * mode); \
     long(*getSize)(TYPE _this); \
     void(*close)(TYPE _this); \

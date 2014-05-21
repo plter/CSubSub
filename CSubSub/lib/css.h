@@ -17,6 +17,7 @@ extern "C" { //c++ header start
 #include "cssString.h"
 #include "cssFile.h"
 #include "cssList.h"
+#include "cssArray.h"
     
 #ifdef __cplusplus
 } //c++ header end
