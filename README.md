@@ -9,6 +9,11 @@ C语言面向对象库
 3. 用C--可以写出完美的面向对象的程序
 4. 一起来拥抱简洁完美的C语言吧
 
+#C--的自动释放机制
+1. 如果指定一个对象为自动释放(autorelease)的话，cssSystem会将该对象记录
+2. 在执行cssSystemGetInstance()->gc()时，所有记录的对象都将被释放
+
+
 
 #HelloWorld示例代码如下：
 ```c
@@ -26,7 +31,7 @@ int main(int argc, const char * argv[])
     // insert code here...
     printf("%s\n",str->getCString(str));
     
-    str->release(str);
+    cssSystemGetInstance()->gc();
     return 0;
 }
 
