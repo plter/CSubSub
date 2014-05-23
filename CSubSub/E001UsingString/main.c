@@ -19,7 +19,7 @@ int main(int argc, const char * argv[])
     // insert code here...
     printf("%s\n",str->getCString(str));
     
-    str->release(str);
+    cssSystemGetInstance()->gc();
     return 0;
 }
 

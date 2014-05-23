@@ -134,7 +134,9 @@ cssArray* cssArrayInitWithCap(cssArray* _this,long cap){
 
 
 cssArray* cssArrayCreateWithCap(long cap){
-    return cssArrayInitWithCap(cssAlloc(cssArray), cap);
+    cssArray * _ins = cssArrayInitWithCap(cssAlloc(cssArray), cap);
+    _ins->autorelease(_ins);
+    return _ins;
 }
 
 cssArray* cssArrayCreate(){

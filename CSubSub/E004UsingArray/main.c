@@ -17,25 +17,20 @@ int main(int argc, const char * argv[])
     cssArray* arr = cssArrayCreate();
     cssString * str;
     
-    for (int i=0; i<5; i++) {
+    for (int i=0; i<200; i++) {
         str = cssStringCreateWithCString("Item ");
         str->addInt(str,i);
         arr->add(arr,cssAs(cssObject*, str));
-        str->release(str);
     }
     
     str = cssStringCreateWithCString("HelloWorld");
     arr->addAt(arr,cssAs(cssObject*, str),3);
-    str->release(str);
     
     cssArrayEach(arr, cssString*, item, {
         printf("%s\n",item->_cstr);
     })
-    
-    arr->release(arr);
 
-    // insert code here...
-    printf("Hello, World!\n");
+    cssSystemGetInstance()->gc();
     return 0;
 }
 

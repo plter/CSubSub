@@ -20,8 +20,7 @@ int main(int argc, const char * argv[])
     
     printf("File Content : %s\n",f->getStringContent(f)->_cstr);
     
-    str->release(str);
-    f->release(f);
+    cssSystemGetInstance()->gc();
     return 0;
 }
 

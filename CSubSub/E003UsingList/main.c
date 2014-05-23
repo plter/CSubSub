@@ -21,14 +21,13 @@ int main(int argc, const char * argv[])
         str = cssStringCreateWithCString("Item ");
         str->addInt(str,i);
         l->addAtLast(l,cssAs(cssObject*, str));
-        str->release(str);
     }
     
     cssListEach(l, cssString*, s, {
         printf("%s\n",s->getCString(s));
     });
     
-    l->release(l);
+    cssSystemGetInstance()->gc();
     
     return 0;
 }

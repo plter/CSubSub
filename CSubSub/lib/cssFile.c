@@ -105,5 +105,7 @@ cssFile * cssFileInit(cssFile * _this,cssString * fileName){
 }
 
 cssFile * cssFileCreate(cssString * fileName){
-	return cssFileInit(cssAlloc(cssFile),fileName);
+    cssFile * _ins =cssFileInit(cssAlloc(cssFile),fileName);
+    _ins->autorelease(_ins);
+	return _ins;
 }

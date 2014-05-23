@@ -30,10 +30,11 @@ void logOut(char * msg);
 
 //TYPE is type of the class that you wanna to create
 #define cssObjectFields(TYPE) \
-    int _retainCount;\
-    void (*retain)(TYPE _this);\
-    void (*release)(TYPE _this);\
-    int (*retainCount)(TYPE _this);\
+    int _retainCount; \
+    void (*retain)(TYPE _this); \
+    void (*release)(TYPE _this); \
+    TYPE (*autorelease)(TYPE _this); \
+    int (*retainCount)(TYPE _this); \
     void (*onDelloc)(TYPE _this);
 
 cssClass(cssObject)

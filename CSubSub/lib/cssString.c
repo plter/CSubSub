@@ -106,7 +106,10 @@ cssString* cssStringInitWithCString(cssString * _this,char * cstr){
 }
 
 cssString* cssStringCreateWithCString(char * cstr){
-	return cssStringInitWithCString(cssAlloc(cssString),cstr);
+    
+    cssString * _ins = cssStringInitWithCString(cssAlloc(cssString),cstr);
+    _ins->autorelease(_ins);
+	return _ins;
 }
 
 cssString* cssStringCreate(){

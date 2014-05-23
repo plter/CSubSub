@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		310CD7C4192A4487004D4327 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 310CD7C3192A4487004D4327 /* main.c */; };
 		310CD7C6192A4487004D4327 /* E001UsingString.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 310CD7C5192A4487004D4327 /* E001UsingString.1 */; };
+		311B0DA0192F3861006A8A29 /* cssSystem.c in Sources */ = {isa = PBXBuildFile; fileRef = 311B0D9E192F3861006A8A29 /* cssSystem.c */; };
+		311B0DA1192F3861006A8A29 /* cssSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 311B0D9F192F3861006A8A29 /* cssSystem.h */; };
 		313BBBC7192CA21F00832B0B /* cssArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 313BBBC5192CA21F00832B0B /* cssArray.c */; };
 		313BBBC8192CA21F00832B0B /* cssArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 313BBBC6192CA21F00832B0B /* cssArray.h */; };
 		313BBBD0192CB22D00832B0B /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 313BBBCF192CB22D00832B0B /* main.c */; };
@@ -110,6 +112,8 @@
 		310CD7C1192A4487004D4327 /* E001UsingString */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = E001UsingString; sourceTree = BUILT_PRODUCTS_DIR; };
 		310CD7C3192A4487004D4327 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		310CD7C5192A4487004D4327 /* E001UsingString.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = E001UsingString.1; sourceTree = "<group>"; };
+		311B0D9E192F3861006A8A29 /* cssSystem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cssSystem.c; path = lib/cssSystem.c; sourceTree = "<group>"; };
+		311B0D9F192F3861006A8A29 /* cssSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cssSystem.h; path = lib/cssSystem.h; sourceTree = "<group>"; };
 		313BBBC5192CA21F00832B0B /* cssArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cssArray.c; path = lib/cssArray.c; sourceTree = "<group>"; };
 		313BBBC6192CA21F00832B0B /* cssArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cssArray.h; path = lib/cssArray.h; sourceTree = "<group>"; };
 		313BBBCD192CB22C00832B0B /* E004UsingArray */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = E004UsingArray; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,6 +253,7 @@
 		31E1386B192AEE29006DDF4D /* header */ = {
 			isa = PBXGroup;
 			children = (
+				311B0D9F192F3861006A8A29 /* cssSystem.h */,
 				313BBBC6192CA21F00832B0B /* cssArray.h */,
 				31E1383F192AD7BD006DDF4D /* cssFile.h */,
 				31E13837192AD67D006DDF4D /* cssString.h */,
@@ -262,6 +267,7 @@
 		31E1386C192AEE48006DDF4D /* source */ = {
 			isa = PBXGroup;
 			children = (
+				311B0D9E192F3861006A8A29 /* cssSystem.c */,
 				313BBBC5192CA21F00832B0B /* cssArray.c */,
 				31E1383E192AD7BD006DDF4D /* cssFile.c */,
 				31E13836192AD67D006DDF4D /* cssString.c */,
@@ -279,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31E13841192AD7BD006DDF4D /* cssFile.h in Headers */,
+				311B0DA1192F3861006A8A29 /* cssSystem.h in Headers */,
 				31E13839192AD67D006DDF4D /* cssString.h in Headers */,
 				31E13845192AD841006DDF4D /* cssList.h in Headers */,
 				31E1383D192AD6D0006DDF4D /* cssObject.h in Headers */,
@@ -417,6 +424,7 @@
 				31E13840192AD7BD006DDF4D /* cssFile.c in Sources */,
 				31E13844192AD841006DDF4D /* cssList.c in Sources */,
 				31E1383C192AD6D0006DDF4D /* cssObject.c in Sources */,
+				311B0DA0192F3861006A8A29 /* cssSystem.c in Sources */,
 				313BBBC7192CA21F00832B0B /* cssArray.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -674,6 +682,7 @@
 				313BBBD5192CB22D00832B0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		31E1381F192ACFED006DDF4D /* Build configuration list for PBXNativeTarget "E002UsingFile" */ = {
 			isa = XCConfigurationList;

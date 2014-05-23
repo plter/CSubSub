@@ -197,6 +197,9 @@ static void cssListOnDelloc(cssList * _this){
 }
 
 cssList* cssListInit(cssList * _this){
+    
+    logOut(">>>>> init cssList >>>>>");
+    
 	cssObjectInit(cssAs(cssObject*,_this));
     
 	_this->_begin = createAndInitCssListItem();
@@ -219,10 +222,12 @@ cssList* cssListInit(cssList * _this){
 	_this->_onCssObjectDelloc = _this->onDelloc;
 	_this->onDelloc = &cssListOnDelloc;
     
-    logOut("init cssList");
+    logOut("<<<<< init cssList <<<<<");
 	return _this;
 }
 
 cssList * cssListCreate(){
-	return cssListInit(cssAlloc(cssList));
+    cssList * _ins = cssListInit(cssAlloc(cssList));
+    _ins->autorelease(_ins);
+	return _ins;
 }

@@ -7,6 +7,7 @@
 //
 
 #include "cssObject.h"
+#include "cssSystem.h"
 
 
 static int _isLogOn = 0;
@@ -38,6 +39,12 @@ static void cssObjectRelease(cssObject *_this){
 	}
 }
 
+static cssObject * cssObjectAutoRelease(cssObject * _this){
+    cssList * l = cssSystemGetInstance()->_pendingReleaseList;
+    l->addAtLast(l,_this);
+    return _this;
+}
+
 static int cssObjectRetainCount(cssObject *_this){
 	return _this->_retainCount;
 }
@@ -51,6 +58,7 @@ cssObject* cssObjectInit(cssObject *_this){
 	_this->_retainCount = 1;
 	_this->onDelloc = &cssObjectOnDelloc;
 	_this->release = &cssObjectRelease;
+    _this->autorelease = &cssObjectAutoRelease;
 	_this->retain = &cssObjectRetain;
 	_this->retainCount = &cssObjectRetainCount;
     
