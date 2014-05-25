@@ -23,8 +23,6 @@ C语言面向对象库
 
 int main(int argc, const char * argv[])
 {
-
-//    logOn();
     
     cssString * str = cssStringCreateWithCString("Hello World");
     
