@@ -7,6 +7,7 @@
 //
 
 #include "cssFile.h"
+#include "cssLog.h"
 
 
 static bool cssFileOpen(cssFile * _this,char * mode){
@@ -54,15 +55,13 @@ static cssString * cssFileGetStringContent(cssFile * _this){
 		_this->_stringContent = cssStringInitWithCString(cssAlloc(cssString),buff);
 		return _this->_stringContent;
 	}else{
-        logOut("Current CFile is NULL,please call open method first");
+        cssLogOut("%s","Current CFile is NULL,please call open method first");
     }
     
 	return NULL;
 }
 
 static void cssFileOnDelloc(cssFile *_this){
-    
-	logOut("Destroy cssFile");
     
 	_this->_fileName->release(_this->_fileName);
 	if (_this->_currentCFile!=NULL) {
@@ -100,7 +99,6 @@ cssFile * cssFileInit(cssFile * _this,cssString * fileName){
 	_this->getFileName = &cssFileGetFileName;
 	_this->getStringContent = &cssFileGetStringContent;
     
-	logOut("init cssFile");
 	return _this;
 }
 

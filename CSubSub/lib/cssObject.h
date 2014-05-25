@@ -18,14 +18,20 @@ extern "C" {
 #include <stdlib.h>
 #include <time.h>
 
-void logOff();
-void logOn();
-void logOut(char * msg);
 
 #define cssClass(name) typedef struct name{name##Fields(struct name *)}name;
 #define cssAs(type,object) ((type)(object))
 #define cssAlloc(__class__) cssAs(__class__ *,malloc(sizeof(__class__)))
 #define cssDelloc(object) free(object)
+#define cssCreateFunc(__class__) __class__ * __class__##Create()
+#define cssCreateFuncImpl(__class__) cssCreateFunc(__class__) { \
+    __class__ * _ins = cssAlloc(__class__); \
+    if(_ins){ \
+        __class__##Init(_ins); \
+        _ins->autorelease(_ins); \
+    } \
+    return _ins; \
+}
 
 
 //TYPE is type of the class that you wanna to create

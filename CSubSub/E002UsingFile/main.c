@@ -11,8 +11,6 @@
 
 int main(int argc, const char * argv[])
 {
-    
-    logOn();
 
     cssString * str = cssStringCreateWithCString("/Users/plter/Work/gitroot/github/CSubSub/CSubSub/Data.txt");
     cssFile * f = cssFileCreate(str);

@@ -29,6 +29,11 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>E005UsingMap.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -43,6 +48,11 @@
 			<true/>
 		</dict>
 		<key>313BBBCC192CB22C00832B0B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>318CF60D1931EE1E00FFDA3A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

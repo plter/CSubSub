@@ -7,6 +7,7 @@
 //
 
 #include "cssArray.h"
+#include "cssLog.h"
 
 
 static long cssArrayGetLength(cssArray* _this){
@@ -22,7 +23,7 @@ static long cssArrayGetCap(cssArray * _this){
 static void cssArrayAddAt(cssArray * _this,cssObject * obj,long index){
     
     if (index<0||index>_this->_length) {
-        logOut("cssArrayAddAt:Error, Array index out of bounds");
+        cssLogOut("%s","cssArrayAddAt:Error, Array index out of bounds");
         return;
     }
     
@@ -55,7 +56,7 @@ static void cssArrayAdd(cssArray * _this,cssObject * obj){
 static void cssArrayRemoveAt(cssArray * _this,long index){
     
     if (index<0||index>=_this->_length) {
-        logOut("cssArrayAddAt:Error, Array index out of bounds");
+        cssLogOut("%s","cssArrayAddAt:Error, Array index out of bounds");
         return;
     }
     
@@ -82,7 +83,7 @@ static void cssArrayRemove(cssArray * _this,cssObject * obj){
 
 static cssObject* cssArrayGet(cssArray * _this,long index){
     if (index<0||index>=_this->_length) {
-        logOut("cssArrayAddAt:Error, Array index out of bounds");
+        cssLogOut("%s","cssArrayAddAt:Error, Array index out of bounds");
         return NULL;
     }
     
@@ -102,8 +103,6 @@ static void cssArrayOnDelloc(cssArray * _this){
     
     cssArrayClear(_this);
     
-    logOut("delloc cssArray");
-    
     free(_this->_arr);
     _this->_onCssObjectDelloc(_this);
 }
@@ -111,8 +110,6 @@ static void cssArrayOnDelloc(cssArray * _this){
 
 cssArray* cssArrayInitWithCap(cssArray* _this,long cap){
     cssObjectInit(cssAs(cssObject*, _this));
-    
-    logOut("init cssArray");
     
     _this->_cap = cap;
     _this->_length = 0;

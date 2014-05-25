@@ -15,15 +15,16 @@ extern "C" {
 
 #include "cssObject.h"
 
-typedef struct _cssListItem{
+struct _cssListItem{
 	cssObject * value;
 	struct _cssListItem * pre;
 	struct _cssListItem * next;
-} cssListItem;
+};
 
 #define cssListFields(TYPE) \
     cssObjectFields(TYPE) \
-    cssListItem * _begin;\
+    struct _cssListItem * _begin; \
+    struct _cssListItem * _end; \
     long _length; \
     long (*getLength)(TYPE _this); \
     void (*addAt)(TYPE _this,cssObject *obj,long index);\
@@ -35,26 +36,23 @@ typedef struct _cssListItem{
     void (*remove)(TYPE _this,cssObject* obj); \
     cssObject * (*get)(TYPE _this,long index); \
     void (*_onCssObjectDelloc)(TYPE _this); \
-    void (*clear)(TYPE _this);
+    void (*clear)(TYPE _this); \
+    void (*removeListItem)(TYPE,struct _cssListItem *); \
+    void (*addListItem)(TYPE,struct _cssListItem *);
 
 cssClass(cssList)
 
 cssList* cssListInit(cssList * _this);
-cssList * cssListCreate();
-
-#define cssListEach(list,type,obj,code) { \
-    cssListItem * item = list->_begin; \
-    type obj=NULL; \
-    while(1){ \
-        obj = (type)(item->value); \
+    cssCreateFunc(cssList);
+    
+#define cssListEach(list,type,obj,code) {\
+    type obj = NULL; \
+    for (struct _cssListItem * item = list->_begin; list->_length>0&&item!=list->_end; item=item->next) {\
+        obj = (type)(item->value) ; \
         code \
-        item=item->next; \
-        if(item==list->_begin){ \
-            break; \
-        }\
     }\
 }
-    
+
 #ifdef __cplusplus
 }
 #endif

@@ -7,86 +7,108 @@
 //
 
 #include "cssList.h"
+#include "cssLog.h"
 
-static cssListItem* createAndInitCssListItem(){
-	cssListItem * i = cssAlloc(cssListItem);
+static struct _cssListItem* createAndInitCssListItem(){
+	struct _cssListItem * i = malloc(sizeof(struct _cssListItem));
 	i->next = NULL;
 	i->pre = NULL;
 	i->value = NULL;
 	return i;
 }
 
+static void cssListRemoveListItem(cssList * _this,struct _cssListItem * item){
+    if (_this->_length<=0) {
+        return;
+    }
+    
+    item->next->pre = item->pre;
+    if (item->pre!=NULL) {
+        item->pre->next = item->next;
+    }else{//pre is NULL means this item is _begin
+        _this->_begin = item->next;
+    }
+    
+    item->value->release(item->value);
+    _this->_length--;
+    
+    free(item);
+    
+    if (_this->_length<=0) {//if _length is 0,we must reset _begin to NULL
+        _this->_begin = NULL;
+    }
+}
+
+
+static void cssListAddListItemBefore(cssList * _this,struct _cssListItem * itemForAdd,struct _cssListItem * item){
+    
+    itemForAdd->pre = item->pre;
+    itemForAdd->next = item;
+    item->pre = itemForAdd;
+    
+    if (itemForAdd->pre!=NULL) {
+        itemForAdd->pre->next = itemForAdd;
+    }else{
+        _this->_begin = itemForAdd;
+    }
+    
+    _this->_length++;
+}
+
+
+static void cssListAddObjectBefore(cssList * _this,cssObject * objForAdd,struct _cssListItem * item){
+    struct _cssListItem * newItem = createAndInitCssListItem();
+    newItem->value = objForAdd;
+    objForAdd->retain(objForAdd);
+    cssListAddListItemBefore(_this, newItem, item);
+}
+
+
 static long cssListGetLength(cssList * _this){
 	return _this->_length;
 }
 
-static cssObject * cssListGet(cssList * _this,long index){
-    
-	if (index<0||index>=_this->_length) {
-		logOut("cssListGet:index out of bounds");
+static struct _cssListItem * cssListGetListItem(cssList * _this,long index){
+    if (index<0||index>=_this->_length) {
+		cssLogOut("%s","cssListGet:index out of bounds");
 		return NULL;
 	}
     
-	cssListItem * tmp = _this->_begin;
+	struct _cssListItem * tmp = NULL;
 	long i = 0;
 	if (index<_this->_length/2) {
+        tmp = _this->_begin;
 		for (i = 0; i < index; ++i) {
 			tmp = tmp->next;
 		}
 	}else{
+        tmp = _this->_end;
 		for (i = _this->_length-1; i <= index; ++i) {
 			tmp = tmp->pre;
 		}
 	}
     
-	return tmp->value;
+    return tmp;
+}
+
+static cssObject * cssListGet(cssList * _this,long index){
+	return cssListGetListItem(_this,index)->value;
 }
 
 static void cssListAddAt(cssList * _this,cssObject * obj,long index){
     
 	if (index<0||index>_this->_length) {
-		logOut("cssListAddAt:index out of bounds");
+		cssLogOut("%s","cssListAddAt:index out of bounds");
 		return;
 	}
     
-	if (_this->_begin->value!=NULL) {
-		cssListItem * newItem = createAndInitCssListItem();
-        
-		if (index==_this->_length) {
-			newItem->value = obj;
-			newItem->pre = _this->_begin->pre;
-			newItem->next = _this->_begin;
-		}else if (index==0) {
-			//switch value with begin
-			newItem->value = _this->_begin->value;
-			_this->_begin->value = obj;
-			//add after begin
-			newItem->pre = _this->_begin;
-			newItem->next = _this->_begin->next;
-		}else{
-			cssListItem * tmp = _this->_begin;
-			long i = 0;
-			if (index<_this->_length/2) {
-				for (i = 0; i < index; ++i) {
-					tmp=tmp->next;
-				}
-			}else{
-				for (i = _this->_length-1; i >= index; --i) {
-					tmp=tmp->pre;
-				}
-			}
-			newItem->next = tmp;
-			newItem->pre = tmp->pre;
-		}
-		//insert new item
-		newItem->pre->next = newItem;
-		newItem->next->pre = newItem;
-	}else{
-		_this->_begin->value = obj;
-	}
-    
-	obj->retain(obj);
-	_this->_length++;
+    if (_this->_length==0||_this->_length==index) {
+        cssListAddObjectBefore(_this, obj, _this->_end);
+    }else if(index==0){
+        cssListAddObjectBefore(_this, obj, _this->_begin);
+    }else{
+        cssListAddObjectBefore(_this, obj, cssListGetListItem(_this,index));
+    }
 }
 
 static void cssListAddAtLast(cssList * _this,cssObject * obj){
@@ -100,49 +122,26 @@ static void cssListAddAtFirst(cssList * _this,cssObject * obj){
 static void cssListRemoveAt(cssList * _this,long index){
     
 	if (index<0||index>=_this->_length||_this->_length<=0) {
-		logOut("cssListRemoveAt:index out of bounds");
+		cssLogOut("%s","cssListRemoveAt:index out of bounds");
 		return;
 	}
     
-	cssListItem * tmp = _this->_begin;
+	struct _cssListItem * tmp = NULL;
 	long i=0;
     
-    if (index!=0) {
-        if (index<_this->_length/2) {
-            for (i = 0; i < index; ++i) {
-                tmp = tmp->next;
-            }
-        }else{
-            for (i = _this->_length-1; i >=index; --i) {
-                tmp=tmp->pre;
-            }
+    if (index<_this->_length/2) {
+        tmp = _this->_begin;
+        for (i = 0; i < index; ++i) {
+            tmp = tmp->next;
         }
-        
-        tmp->next->pre = tmp->pre;
-        tmp->pre->next = tmp->next;
-        
-        tmp->value->release(tmp->value);
-        
-        cssDelloc(tmp);
     }else{
-        
-        _this->_begin->value->release(_this->_begin->value);
-        
-        //second
-        tmp = _this->_begin->next;
-        
-        if (tmp!=_this->_begin) {
-            _this->_begin->value = tmp->value;
-            _this->_begin->next = tmp->next;
-            _this->_begin->next->pre = _this->_begin;
-            
-            cssDelloc(tmp);
-        }else{
-            _this->_begin->value = NULL;
+        tmp = _this->_end;
+        for (i = _this->_length-1; i >=index; --i) {
+            tmp=tmp->pre;
         }
     }
     
-    _this->_length--;
+    cssListRemoveListItem(_this, tmp);
 }
 
 static void cssListRemoveFirst(cssList * _this){
@@ -153,30 +152,26 @@ static void cssListRemoveLast(cssList * _this){
 	cssListRemoveAt(_this,cssListGetLength(_this)-1);
 }
 
+//TODO
 static void cssListRemove(cssList * _this,cssObject * obj){
     
-	cssListItem * item = _this->_begin;
-	cssListItem * tmp = NULL;
+    if (_this->_length<=0) {
+        return;
+    }
     
-	while(1){
-		if (item->value==obj) {
-			obj->release(obj);
-            
-			item->next->pre = item->pre;
-			item->pre->next = item->next;
-            
-			tmp = item;
-			item = item->next;
-			cssDelloc(tmp);
-			break;
-		}
-        
-		if (item==_this->_begin->pre) {
-			break;
-		}
-        
-		item = item->next;
-	}
+    struct _cssListItem * item = _this->_begin;
+    struct _cssListItem * tmp = NULL;
+    while (item!=_this->_end) {
+        if (item->value == obj) {
+            tmp = item;
+            item = item->next;
+            cssListRemoveListItem(_this, tmp);
+            break;
+        }else{
+            item = item->next;
+        }
+    }
+    
 }
 
 static void cssListClear(cssList * _this){
@@ -187,24 +182,19 @@ static void cssListClear(cssList * _this){
 
 static void cssListOnDelloc(cssList * _this){
     
-    logOut("destory cssList");
-    
 	cssListClear(_this);
     
-	cssDelloc(_this->_begin);
+	free(_this->_end);
     
 	_this->_onCssObjectDelloc(_this);
 }
 
 cssList* cssListInit(cssList * _this){
     
-    logOut(">>>>> init cssList >>>>>");
-    
 	cssObjectInit(cssAs(cssObject*,_this));
     
-	_this->_begin = createAndInitCssListItem();
-	_this->_begin->next = _this->_begin;
-	_this->_begin->pre = _this->_begin;
+	_this->_begin = NULL;
+    _this->_end = createAndInitCssListItem();
     
 	_this->_length = 0;
 	_this->getLength = &cssListGetLength;
@@ -216,18 +206,13 @@ cssList* cssListInit(cssList * _this){
 	_this->removeFirst = &cssListRemoveFirst;
 	_this->removeLast = &cssListRemoveLast;
 	_this->remove = &cssListRemove;
+    _this->removeListItem = &cssListRemoveListItem;
 	_this->get = &cssListGet;
     _this->clear = &cssListClear;
     
 	_this->_onCssObjectDelloc = _this->onDelloc;
 	_this->onDelloc = &cssListOnDelloc;
-    
-    logOut("<<<<< init cssList <<<<<");
 	return _this;
 }
 
-cssList * cssListCreate(){
-    cssList * _ins = cssListInit(cssAlloc(cssList));
-    _ins->autorelease(_ins);
-	return _ins;
-}
+cssCreateFuncImpl(cssList)

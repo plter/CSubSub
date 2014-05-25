@@ -20,8 +20,6 @@ static char* cssStringGetCString(cssString * _this){
 static void cssStringOnDelloc(cssString * _this){
 	free(_this->_cstr);
     
-	logOut("Destroy cssString");
-    
 	_this->_onCssObjectDelloc(_this);
 }
 
@@ -101,7 +99,6 @@ cssString* cssStringInitWithCString(cssString * _this,char * cstr){
     _this->addFloat = &cssStringAddFloat;
     _this->getChar = &cssStringGetChar;
     
-	logOut("init cssString");
 	return _this;
 }
 

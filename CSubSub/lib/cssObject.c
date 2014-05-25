@@ -8,23 +8,7 @@
 
 #include "cssObject.h"
 #include "cssSystem.h"
-
-
-static int _isLogOn = 0;
-
-void logOff(){
-	_isLogOn = 0;
-}
-void logOn(){
-	_isLogOn = 1;
-}
-void logOut(char * msg){
-	if (_isLogOn) {
-		time_t t = time(NULL);
-		struct tm* tm = localtime(&t);
-		printf("[%d:%d:%d]%s\n",tm->tm_hour,tm->tm_min,tm->tm_sec,msg);
-	}
-}
+#include "cssLog.h"
 
 
 static void cssObjectRetain(cssObject *_this){
@@ -50,7 +34,7 @@ static int cssObjectRetainCount(cssObject *_this){
 }
 
 static void cssObjectOnDelloc(cssObject *_this){
-	logOut("Destroy cssObject");
+	cssLogOut("%s,addr:%lld","Destroy cssObject",(long long)_this);
 }
 
 
@@ -62,7 +46,7 @@ cssObject* cssObjectInit(cssObject *_this){
 	_this->retain = &cssObjectRetain;
 	_this->retainCount = &cssObjectRetainCount;
     
-	logOut("init cssObject");
+	cssLogOut("%s,addr:%lld", "init Object" , (long long)_this);
 	return _this;
 }
 

@@ -13,12 +13,14 @@
 extern "C" { //c++ header start
 #endif
 
+#include "cssLog.h"
 #include "cssObject.h"
 #include "cssString.h"
 #include "cssFile.h"
 #include "cssList.h"
 #include "cssArray.h"
 #include "cssSystem.h"
+#include "cssMap.h"
     
 #ifdef __cplusplus
 } //c++ header end

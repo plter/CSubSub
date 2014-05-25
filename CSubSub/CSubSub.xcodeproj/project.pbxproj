@@ -16,6 +16,13 @@
 		313BBBD0192CB22D00832B0B /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 313BBBCF192CB22D00832B0B /* main.c */; };
 		313BBBD2192CB22D00832B0B /* E004UsingArray.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 313BBBD1192CB22D00832B0B /* E004UsingArray.1 */; };
 		313BBBD8192CB24300832B0B /* libCSubSub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 310CD7B1192A441A004D4327 /* libCSubSub.a */; };
+		318CF6111931EE1E00FFDA3A /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 318CF6101931EE1E00FFDA3A /* main.c */; };
+		318CF6131931EE1E00FFDA3A /* E005UsingMap.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 318CF6121931EE1E00FFDA3A /* E005UsingMap.1 */; };
+		318CF6171931EE9400FFDA3A /* libCSubSub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 310CD7B1192A441A004D4327 /* libCSubSub.a */; };
+		318CF6201931FE2400FFDA3A /* cssMap.c in Sources */ = {isa = PBXBuildFile; fileRef = 318CF61F1931FE2400FFDA3A /* cssMap.c */; };
+		318CF6221931FE2D00FFDA3A /* cssMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 318CF6211931FE2D00FFDA3A /* cssMap.h */; };
+		318CF6251931FE4100FFDA3A /* cssLog.c in Sources */ = {isa = PBXBuildFile; fileRef = 318CF6231931FE4100FFDA3A /* cssLog.c */; };
+		318CF6261931FE4100FFDA3A /* cssLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 318CF6241931FE4100FFDA3A /* cssLog.h */; };
 		31E1380D192AC682006DDF4D /* libCSubSub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 310CD7B1192A441A004D4327 /* libCSubSub.a */; };
 		31E1381C192ACFED006DDF4D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 31E1381B192ACFED006DDF4D /* main.c */; };
 		31E1381E192ACFED006DDF4D /* E002UsingFile.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31E1381D192ACFED006DDF4D /* E002UsingFile.1 */; };
@@ -35,6 +42,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		313BBBD6192CB23E00832B0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 310CD7A9192A441A004D4327 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 310CD7B0192A441A004D4327;
+			remoteInfo = CSubSub;
+		};
+		318CF6181931EE9900FFDA3A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 310CD7A9192A441A004D4327 /* Project object */;
 			proxyType = 1;
@@ -85,6 +99,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		318CF60C1931EE1E00FFDA3A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				318CF6131931EE1E00FFDA3A /* E005UsingMap.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		31E13817192ACFED006DDF4D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -119,6 +143,13 @@
 		313BBBCD192CB22C00832B0B /* E004UsingArray */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = E004UsingArray; sourceTree = BUILT_PRODUCTS_DIR; };
 		313BBBCF192CB22D00832B0B /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		313BBBD1192CB22D00832B0B /* E004UsingArray.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = E004UsingArray.1; sourceTree = "<group>"; };
+		318CF60E1931EE1E00FFDA3A /* E005UsingMap */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = E005UsingMap; sourceTree = BUILT_PRODUCTS_DIR; };
+		318CF6101931EE1E00FFDA3A /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		318CF6121931EE1E00FFDA3A /* E005UsingMap.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = E005UsingMap.1; sourceTree = "<group>"; };
+		318CF61F1931FE2400FFDA3A /* cssMap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cssMap.c; path = lib/cssMap.c; sourceTree = "<group>"; };
+		318CF6211931FE2D00FFDA3A /* cssMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cssMap.h; path = lib/cssMap.h; sourceTree = "<group>"; };
+		318CF6231931FE4100FFDA3A /* cssLog.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cssLog.c; path = lib/cssLog.c; sourceTree = "<group>"; };
+		318CF6241931FE4100FFDA3A /* cssLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cssLog.h; path = lib/cssLog.h; sourceTree = "<group>"; };
 		31E13814192AC6F6006DDF4D /* css.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = css.h; path = lib/css.h; sourceTree = "<group>"; };
 		31E13819192ACFED006DDF4D /* E002UsingFile */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = E002UsingFile; sourceTree = BUILT_PRODUCTS_DIR; };
 		31E1381B192ACFED006DDF4D /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
@@ -161,6 +192,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		318CF60B1931EE1E00FFDA3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				318CF6171931EE9400FFDA3A /* libCSubSub.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		31E13816192ACFED006DDF4D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -188,6 +227,7 @@
 				31E1381A192ACFED006DDF4D /* E002UsingFile */,
 				31E1382B192AD437006DDF4D /* E003UsingList */,
 				313BBBCE192CB22D00832B0B /* E004UsingArray */,
+				318CF60F1931EE1E00FFDA3A /* E005UsingMap */,
 				310CD7B2192A441A004D4327 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -200,6 +240,7 @@
 				31E13819192ACFED006DDF4D /* E002UsingFile */,
 				31E1382A192AD437006DDF4D /* E003UsingList */,
 				313BBBCD192CB22C00832B0B /* E004UsingArray */,
+				318CF60E1931EE1E00FFDA3A /* E005UsingMap */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,6 +272,15 @@
 			path = E004UsingArray;
 			sourceTree = "<group>";
 		};
+		318CF60F1931EE1E00FFDA3A /* E005UsingMap */ = {
+			isa = PBXGroup;
+			children = (
+				318CF6101931EE1E00FFDA3A /* main.c */,
+				318CF6121931EE1E00FFDA3A /* E005UsingMap.1 */,
+			);
+			path = E005UsingMap;
+			sourceTree = "<group>";
+		};
 		31E1381A192ACFED006DDF4D /* E002UsingFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +303,8 @@
 		31E1386B192AEE29006DDF4D /* header */ = {
 			isa = PBXGroup;
 			children = (
+				318CF6241931FE4100FFDA3A /* cssLog.h */,
+				318CF6211931FE2D00FFDA3A /* cssMap.h */,
 				311B0D9F192F3861006A8A29 /* cssSystem.h */,
 				313BBBC6192CA21F00832B0B /* cssArray.h */,
 				31E1383F192AD7BD006DDF4D /* cssFile.h */,
@@ -267,12 +319,14 @@
 		31E1386C192AEE48006DDF4D /* source */ = {
 			isa = PBXGroup;
 			children = (
+				318CF61F1931FE2400FFDA3A /* cssMap.c */,
 				311B0D9E192F3861006A8A29 /* cssSystem.c */,
 				313BBBC5192CA21F00832B0B /* cssArray.c */,
 				31E1383E192AD7BD006DDF4D /* cssFile.c */,
 				31E13836192AD67D006DDF4D /* cssString.c */,
 				31E1383A192AD6D0006DDF4D /* cssObject.c */,
 				31E13842192AD840006DDF4D /* cssList.c */,
+				318CF6231931FE4100FFDA3A /* cssLog.c */,
 			);
 			name = source;
 			sourceTree = "<group>";
@@ -285,8 +339,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				31E13841192AD7BD006DDF4D /* cssFile.h in Headers */,
+				318CF6261931FE4100FFDA3A /* cssLog.h in Headers */,
 				311B0DA1192F3861006A8A29 /* cssSystem.h in Headers */,
 				31E13839192AD67D006DDF4D /* cssString.h in Headers */,
+				318CF6221931FE2D00FFDA3A /* cssMap.h in Headers */,
 				31E13845192AD841006DDF4D /* cssList.h in Headers */,
 				31E1383D192AD6D0006DDF4D /* cssObject.h in Headers */,
 				313BBBC8192CA21F00832B0B /* cssArray.h in Headers */,
@@ -347,6 +403,24 @@
 			name = E004UsingArray;
 			productName = E004UsingArray;
 			productReference = 313BBBCD192CB22C00832B0B /* E004UsingArray */;
+			productType = "com.apple.product-type.tool";
+		};
+		318CF60D1931EE1E00FFDA3A /* E005UsingMap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 318CF6161931EE1E00FFDA3A /* Build configuration list for PBXNativeTarget "E005UsingMap" */;
+			buildPhases = (
+				318CF60A1931EE1E00FFDA3A /* Sources */,
+				318CF60B1931EE1E00FFDA3A /* Frameworks */,
+				318CF60C1931EE1E00FFDA3A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				318CF6191931EE9900FFDA3A /* PBXTargetDependency */,
+			);
+			name = E005UsingMap;
+			productName = E005UsingMap;
+			productReference = 318CF60E1931EE1E00FFDA3A /* E005UsingMap */;
 			productType = "com.apple.product-type.tool";
 		};
 		31E13818192ACFED006DDF4D /* E002UsingFile */ = {
@@ -411,6 +485,7 @@
 				31E13818192ACFED006DDF4D /* E002UsingFile */,
 				31E13829192AD437006DDF4D /* E003UsingList */,
 				313BBBCC192CB22C00832B0B /* E004UsingArray */,
+				318CF60D1931EE1E00FFDA3A /* E005UsingMap */,
 			);
 		};
 /* End PBXProject section */
@@ -424,8 +499,10 @@
 				31E13840192AD7BD006DDF4D /* cssFile.c in Sources */,
 				31E13844192AD841006DDF4D /* cssList.c in Sources */,
 				31E1383C192AD6D0006DDF4D /* cssObject.c in Sources */,
+				318CF6251931FE4100FFDA3A /* cssLog.c in Sources */,
 				311B0DA0192F3861006A8A29 /* cssSystem.c in Sources */,
 				313BBBC7192CA21F00832B0B /* cssArray.c in Sources */,
+				318CF6201931FE2400FFDA3A /* cssMap.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +519,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				313BBBD0192CB22D00832B0B /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		318CF60A1931EE1E00FFDA3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				318CF6111931EE1E00FFDA3A /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +553,11 @@
 			isa = PBXTargetDependency;
 			target = 310CD7B0192A441A004D4327 /* CSubSub */;
 			targetProxy = 313BBBD6192CB23E00832B0B /* PBXContainerItemProxy */;
+		};
+		318CF6191931EE9900FFDA3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 310CD7B0192A441A004D4327 /* CSubSub */;
+			targetProxy = 318CF6181931EE9900FFDA3A /* PBXContainerItemProxy */;
 		};
 		31E1380F192AC68A006DDF4D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -609,6 +699,24 @@
 			};
 			name = Release;
 		};
+		318CF6141931EE1E00FFDA3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		318CF6151931EE1E00FFDA3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		31E13820192ACFED006DDF4D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -683,6 +791,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		318CF6161931EE1E00FFDA3A /* Build configuration list for PBXNativeTarget "E005UsingMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				318CF6141931EE1E00FFDA3A /* Debug */,
+				318CF6151931EE1E00FFDA3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		31E1381F192ACFED006DDF4D /* Build configuration list for PBXNativeTarget "E002UsingFile" */ = {
 			isa = XCConfigurationList;

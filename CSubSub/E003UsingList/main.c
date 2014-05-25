@@ -11,8 +11,6 @@
 
 int main(int argc, const char * argv[])
 {
-
-    logOn();
     
     cssList * l = cssListCreate();
     
@@ -26,6 +24,12 @@ int main(int argc, const char * argv[])
     cssListEach(l, cssString*, s, {
         printf("%s\n",s->getCString(s));
     });
+    
+//    str = cssStringCreateWithCString("Hello");
+//    l->addAtLast(l,cssAs(cssObject*, str));
+//    l->addAtLast(l,cssAs(cssObject*, str));
+//    
+//    l->remove(l,cssAs(cssObject*, str));
     
     cssSystemGetInstance()->gc();
     

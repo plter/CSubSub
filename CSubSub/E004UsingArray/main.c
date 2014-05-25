@@ -12,8 +12,6 @@
 int main(int argc, const char * argv[])
 {
     
-    logOn();
-    
     cssArray* arr = cssArrayCreate();
     cssString * str;
     

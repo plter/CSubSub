@@ -11,8 +11,6 @@
 
 int main(int argc, const char * argv[])
 {
-
-    logOn();
     
     cssString * str = cssStringCreateWithCString("Hello World");
     

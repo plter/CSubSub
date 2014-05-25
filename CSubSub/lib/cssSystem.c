@@ -26,7 +26,6 @@ static void cssSystemOnDelloc(cssSystem * _this){
 
 static cssSystem * cssSystemInit(cssSystem * _this){
     
-    logOut(">>>>> init cssSystem >>>>>");
     
     cssObjectInit(cssAs(cssObject*, _this));
     
@@ -35,8 +34,6 @@ static cssSystem * cssSystemInit(cssSystem * _this){
     
     _this->_onObjectDelloc = _this->onDelloc;
     _this->onDelloc = &cssSystemOnDelloc;
-    
-    logOut("<<<<< init cssSystem <<<<<");
     
     return _this;
 }
