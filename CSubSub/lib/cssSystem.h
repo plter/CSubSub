@@ -16,17 +16,32 @@ extern "C" { //c++ header start
 
 #include "cssObject.h"
 #include "cssList.h"
+#include <stdbool.h>
 
 #define cssSystemFields(TYPE) \
     cssObjectFields(TYPE) \
     cssList * _pendingReleaseList; \
+    bool _isLogOn; \
     void (*gc)(); \
-    void (*_onObjectDelloc)(TYPE); 
+    void (*_onObjectDelloc)(TYPE); \
+    void (*logOn)(); \
+    void (*logOff)(); \
+    bool (*isLogOn)();
     
 cssClass(cssSystem)
 
 cssSystem * cssSystemGetInstance();
 
+    
+#define cssSystemLog(format,args...) {\
+    if(cssSystemGetInstance()->isLogOn()){ \
+        time_t t = time(NULL); \
+        struct tm* tm = localtime(&t); \
+        printf("[%d:%d:%d]",tm->tm_hour,tm->tm_min,tm->tm_sec); \
+        printf(format,args); \
+        printf("\n"); \
+    } \
+}
     
 #ifdef __cplusplus
 } //c++ header end

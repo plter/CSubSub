@@ -7,7 +7,7 @@
 //
 
 #include "cssList.h"
-#include "cssLog.h"
+#include "cssSystem.h"
 
 static struct _cssListItem* createAndInitCssListItem(){
 	struct _cssListItem * i = malloc(sizeof(struct _cssListItem));
@@ -70,7 +70,7 @@ static long cssListGetLength(cssList * _this){
 
 static struct _cssListItem * cssListGetListItem(cssList * _this,long index){
     if (index<0||index>=_this->_length) {
-		cssLogOut("%s","cssListGet:index out of bounds");
+		cssSystemLog("%s","cssListGet:index out of bounds");
 		return NULL;
 	}
     
@@ -98,7 +98,7 @@ static cssObject * cssListGet(cssList * _this,long index){
 static void cssListAddAt(cssList * _this,cssObject * obj,long index){
     
 	if (index<0||index>_this->_length) {
-		cssLogOut("%s","cssListAddAt:index out of bounds");
+		cssSystemLog("%s","cssListAddAt:index out of bounds");
 		return;
 	}
     
@@ -122,7 +122,7 @@ static void cssListAddAtFirst(cssList * _this,cssObject * obj){
 static void cssListRemoveAt(cssList * _this,long index){
     
 	if (index<0||index>=_this->_length||_this->_length<=0) {
-		cssLogOut("%s","cssListRemoveAt:index out of bounds");
+		cssSystemLog("%s","cssListRemoveAt:index out of bounds");
 		return;
 	}
     

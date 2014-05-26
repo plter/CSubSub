@@ -22,7 +22,6 @@ int main(int argc, const char * argv[])
     
     map->remove(map,"hello");
     
-
     cssSystemGetInstance()->gc();
     return 0;
 }

@@ -13,7 +13,6 @@
 extern "C" { //c++ header start
 #endif
 
-#include "cssLog.h"
 #include "cssObject.h"
 #include "cssString.h"
 #include "cssFile.h"

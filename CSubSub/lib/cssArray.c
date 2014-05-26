@@ -7,7 +7,7 @@
 //
 
 #include "cssArray.h"
-#include "cssLog.h"
+#include "cssSystem.h"
 
 
 static long cssArrayGetLength(cssArray* _this){
@@ -23,7 +23,7 @@ static long cssArrayGetCap(cssArray * _this){
 static void cssArrayAddAt(cssArray * _this,cssObject * obj,long index){
     
     if (index<0||index>_this->_length) {
-        cssLogOut("%s","cssArrayAddAt:Error, Array index out of bounds");
+        cssSystemLog("%s","cssArrayAddAt:Error, Array index out of bounds");
         return;
     }
     
@@ -56,7 +56,7 @@ static void cssArrayAdd(cssArray * _this,cssObject * obj){
 static void cssArrayRemoveAt(cssArray * _this,long index){
     
     if (index<0||index>=_this->_length) {
-        cssLogOut("%s","cssArrayAddAt:Error, Array index out of bounds");
+        cssSystemLog("%s","cssArrayAddAt:Error, Array index out of bounds");
         return;
     }
     
@@ -83,7 +83,7 @@ static void cssArrayRemove(cssArray * _this,cssObject * obj){
 
 static cssObject* cssArrayGet(cssArray * _this,long index){
     if (index<0||index>=_this->_length) {
-        cssLogOut("%s","cssArrayAddAt:Error, Array index out of bounds");
+        cssSystemLog("%s","cssArrayAddAt:Error, Array index out of bounds");
         return NULL;
     }
     

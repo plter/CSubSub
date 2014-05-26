@@ -8,7 +8,6 @@
 
 #include "cssObject.h"
 #include "cssSystem.h"
-#include "cssLog.h"
 
 
 static void cssObjectRetain(cssObject *_this){
@@ -34,11 +33,12 @@ static int cssObjectRetainCount(cssObject *_this){
 }
 
 static void cssObjectOnDelloc(cssObject *_this){
-	cssLogOut("%s,addr:%lld","Destroy cssObject",(long long)_this);
+    //
 }
 
 
 cssObject* cssObjectInit(cssObject *_this){
+    
 	_this->_retainCount = 1;
 	_this->onDelloc = &cssObjectOnDelloc;
 	_this->release = &cssObjectRelease;
@@ -46,7 +46,6 @@ cssObject* cssObjectInit(cssObject *_this){
 	_this->retain = &cssObjectRetain;
 	_this->retainCount = &cssObjectRetainCount;
     
-	cssLogOut("%s,addr:%lld", "init Object" , (long long)_this);
 	return _this;
 }
 

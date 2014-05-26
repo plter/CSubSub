@@ -7,7 +7,7 @@
 //
 
 #include "cssFile.h"
-#include "cssLog.h"
+#include "cssSystem.h"
 
 
 static bool cssFileOpen(cssFile * _this,char * mode){
@@ -55,7 +55,7 @@ static cssString * cssFileGetStringContent(cssFile * _this){
 		_this->_stringContent = cssStringInitWithCString(cssAlloc(cssString),buff);
 		return _this->_stringContent;
 	}else{
-        cssLogOut("%s","Current CFile is NULL,please call open method first");
+        cssSystemLog("%s","Current CFile is NULL,please call open method first");
     }
     
 	return NULL;
