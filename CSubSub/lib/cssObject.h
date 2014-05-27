@@ -32,6 +32,11 @@ extern "C" {
     } \
     return _ins; \
 }
+#define cssCall(target,method) (target->method(target))
+#define cssCallA(target,method,args...) (target->method(target,args))
+#define cssCallRT(ReturnType,target,method) ((ReturnType)(cssCall(target,method)))
+#define cssCallRTA(ReturnType,target,method,args...) ((ReturnType)(target->method(target,args)))
+
 
 
 //TYPE is type of the class that you wanna to create

@@ -31,8 +31,10 @@ extern "C" { //c++ header start
     
 cssClass(cssMap)
     
-    cssMap* cssMapInit(cssMap * _this);
-    cssCreateFunc(cssMap);
+cssMap* cssMapInit(cssMap * _this);
+cssCreateFunc(cssMap);
+
+#define cssMapPutD(map,key,value) map->put(map,key,cssAs(cssObject*, value)); 
     
     
     

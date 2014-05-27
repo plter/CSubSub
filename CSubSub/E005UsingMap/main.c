@@ -14,13 +14,17 @@ int main(int argc, const char * argv[])
     
     cssMap * map = cssMapCreate();
     
-    map->put(map,"hello",cssAs(cssObject*, cssStringCreateWithCString("Hello")));
+    cssCallA(map, put, "haha",cssAs(cssObject*, cssStringCreateWithCString("Haha")));
+    cssMapPutD(map, "hello", cssStringCreateWithCString("Hello"));
     map->put(map,"world",cssAs(cssObject*, cssStringCreateWithCString("World")));
     
-    printf("%ld\n",map->getLength(map));
-    printf("%s\n",cssAs(cssString*, map->get(map,"world"))->_cstr);
+    printf("%ld\n",cssCall(map,getLength));
+    printf("%s\n",cssCallRTA(cssString*, map, get,"hello")->_cstr);
+    cssSystemLog("%s", cssCallRTA(cssString*, map, get,"haha")->_cstr);
     
-    map->remove(map,"hello");
+    cssCallA(map, remove, "hello");
+    
+    printf("%ld\n",cssCall(map,getLength));
     
     cssSystemGetInstance()->gc();
     return 0;
