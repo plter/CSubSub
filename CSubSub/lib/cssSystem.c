@@ -9,8 +9,8 @@
 #include "cssSystem.h"
 
 
-static void cssSystemGc(){
-    cssList * l = cssSystemGetInstance()->_pendingReleaseList;
+static void cssSystemGc(cssSystem * _this){
+    cssList * l = _this->_pendingReleaseList;
     
     cssObject * obj =NULL;
     while (l->_length) {
@@ -26,16 +26,16 @@ static void cssSystemOnDelloc(cssSystem * _this){
     _this->_onObjectDelloc(_this);
 }
 
-static void cssSystemLogOn(){
-    cssSystemGetInstance()->_isLogOn = true;
+static void cssSystemLogOn(cssSystem * _this){
+    _this->_isLogOn = true;
 }
 
-static void cssSystemLogOff(){
-    cssSystemGetInstance()->_isLogOn = false;
+static void cssSystemLogOff(cssSystem * _this){
+    _this->_isLogOn = false;
 }
 
-static bool cssSystemIsLogOn(){
-    return cssSystemGetInstance()->_isLogOn;
+static bool cssSystemIsLogOn(cssSystem * _this){
+    return _this->_isLogOn;
 }
 
 static cssSystem * cssSystemInit(cssSystem * _this){

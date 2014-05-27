@@ -100,6 +100,7 @@ static void cssArrayClear(cssArray * _this){
 }
 
 static void cssArrayOnDelloc(cssArray * _this){
+    cssSystemLog("delloc array %lld", (long long)_this);
     
     cssArrayClear(_this);
     
@@ -126,6 +127,7 @@ cssArray* cssArrayInitWithCap(cssArray* _this,long cap){
     _this->onDelloc = &cssArrayOnDelloc;
     _this->clear = &cssArrayClear;
     
+    cssSystemLog("init array %lld", (long long)_this);
     return _this;
 }
 

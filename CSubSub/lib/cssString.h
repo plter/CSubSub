@@ -19,15 +19,15 @@ extern "C" {
     cssObjectFields(TYPE) \
     long _length; \
     char * _cstr; \
-    void(*_onCssObjectDelloc)(TYPE _this); \
-    long (*getLength)(TYPE _this); \
-    char*(*getCString)(TYPE _this); \
-    TYPE (*addCssString)(TYPE _this,TYPE _other); \
-    TYPE (*addCString)(TYPE _this,char * _other); \
-    TYPE (*addInt)(TYPE _this,int value); \
-    TYPE (*addLong)(TYPE _this,long value); \
-    TYPE (*addFloat)(TYPE _this,float value); \
-    char (*getChar)(TYPE _this,long index);
+    void cssFunc(TYPE,_onCssObjectDelloc); \
+    long cssFunc(TYPE,getLength); \
+    char* cssFunc(TYPE,getCString); \
+    TYPE cssFuncA(TYPE,addCssString,TYPE _other); \
+    TYPE cssFuncA(TYPE,addCString,char * _other); \
+    TYPE cssFuncA(TYPE,addInt,int value); \
+    TYPE cssFuncA(TYPE,addLong,long value); \
+    TYPE cssFuncA(TYPE,addFloat,float value); \
+    char cssFuncA(TYPE,getChar,long index);
 
 cssClass(cssString)
 

@@ -212,6 +212,7 @@ cssList* cssListInit(cssList * _this){
     
 	_this->_onCssObjectDelloc = _this->onDelloc;
 	_this->onDelloc = &cssListOnDelloc;
+    
 	return _this;
 }
 

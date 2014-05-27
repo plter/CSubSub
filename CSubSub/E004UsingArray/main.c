@@ -11,7 +11,7 @@
 
 int main(int argc, const char * argv[])
 {
-    
+    cssCall(cssSystemGetInstance(), logOn);
     cssArray* arr = cssArrayCreate();
     cssString * str;
     
@@ -28,7 +28,7 @@ int main(int argc, const char * argv[])
         printf("%s\n",item->_cstr);
     })
 
-    cssSystemGetInstance()->gc();
+    cssCall(cssSystemGetInstance(), gc);
     return 0;
 }
 

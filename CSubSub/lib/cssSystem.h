@@ -22,11 +22,11 @@ extern "C" { //c++ header start
     cssObjectFields(TYPE) \
     cssList * _pendingReleaseList; \
     bool _isLogOn; \
-    void (*gc)(); \
+    void (*gc)(TYPE); \
     void (*_onObjectDelloc)(TYPE); \
-    void (*logOn)(); \
-    void (*logOff)(); \
-    bool (*isLogOn)();
+    void (*logOn)(TYPE); \
+    void (*logOff)(TYPE); \
+    bool (*isLogOn)(TYPE);
     
 cssClass(cssSystem)
 
@@ -34,7 +34,7 @@ cssSystem * cssSystemGetInstance();
 
     
 #define cssSystemLog(format,args...) {\
-    if(cssSystemGetInstance()->isLogOn()){ \
+    if(cssCall(cssSystemGetInstance(),isLogOn)){ \
         time_t t = time(NULL); \
         struct tm* tm = localtime(&t); \
         printf("[%d:%d:%d]",tm->tm_hour,tm->tm_min,tm->tm_sec); \

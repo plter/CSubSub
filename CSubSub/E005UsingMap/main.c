@@ -11,7 +11,7 @@
 
 int main(int argc, const char * argv[])
 {
-    
+    cssCall(cssSystemGetInstance(), logOn);
     cssMap * map = cssMapCreate();
     
     cssCallA(map, put, "haha",cssAs(cssObject*, cssStringCreateWithCString("Haha")));
@@ -26,7 +26,7 @@ int main(int argc, const char * argv[])
     
     printf("%ld\n",cssCall(map,getLength));
     
-    cssSystemGetInstance()->gc();
+    cssCall(cssSystemGetInstance(), gc);
     return 0;
 }
 

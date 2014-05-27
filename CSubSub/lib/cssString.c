@@ -7,23 +7,27 @@
 //
 
 #include "cssString.h"
+#include "cssSystem.h"
 
 
-static long cssStringGetLength(cssString *_this){
+static long cssFuncImpl(cssString*,cssStringGetLength){
 	return _this->_length;
 }
 
-static char* cssStringGetCString(cssString * _this){
+static char* cssFuncImpl(cssString*,cssStringGetCString){
 	return _this->_cstr;
 }
 
-static void cssStringOnDelloc(cssString * _this){
+static void cssFuncImpl(cssString*,cssStringOnDelloc){
+    
+    cssSystemLog("delloc string %s", _this->_cstr);
+    
 	free(_this->_cstr);
     
 	_this->_onCssObjectDelloc(_this);
 }
 
-static cssString* cssStringAddCString(cssString * _this,char * _other){
+static cssString* cssFuncImplA(cssString*,cssStringAddCString,char * _other){
 	char * tmp = _this->_cstr;
 	_this->_length+=strlen(_other);
 	_this->_cstr = malloc(_this->_length+1);
@@ -36,7 +40,7 @@ static cssString* cssStringAddCString(cssString * _this,char * _other){
     return _this;
 }
 
-static cssString* cssStringAddCssString(cssString * _this,cssString * _other){
+static cssString* cssFuncImplA(cssString*,cssStringAddCssString,cssString * _other){
 	cssStringAddCString(_this,cssAs(cssString*,_other)->getCString(_other));
     return _this;
 }
@@ -99,6 +103,7 @@ cssString* cssStringInitWithCString(cssString * _this,char * cstr){
     _this->addFloat = &cssStringAddFloat;
     _this->getChar = &cssStringGetChar;
     
+    cssSystemLog("init string %s", cstr);
 	return _this;
 }
 

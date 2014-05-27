@@ -11,6 +11,7 @@
 
 int main(int argc, const char * argv[])
 {
+    cssCall(cssSystemGetInstance(), logOn);
     
     cssList * l = cssListCreate();
     
@@ -31,7 +32,7 @@ int main(int argc, const char * argv[])
 //    
 //    l->remove(l,cssAs(cssObject*, str));
     
-    cssSystemGetInstance()->gc();
+    cssCall(cssSystemGetInstance(), gc);
     
     return 0;
 }

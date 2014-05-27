@@ -8,6 +8,7 @@
 
 #include "cssMap.h"
 #include <string.h>
+#include "cssSystem.h"
 
 //KV class >>>>>>>>>>>>>>>>>>>>>>>
 #define cssMapKVFields(TYPE) \
@@ -39,6 +40,9 @@ static cssMapKV * cssMapKVInit(cssMapKV * _this,char * key,cssObject * value){
 
 
 void cssMapOnDelloc(cssMap * _this){
+    
+    cssSystemLog("delloc map %lld", (long long)_this);
+    
     _this->_kvList->release(_this->_kvList);
     
     _this->_onObjectDelloc(_this);
@@ -98,7 +102,7 @@ cssMap * cssMapInit(cssMap * _this){
     _this->getLength = &cssMapGetLength;
     _this->remove = &cssMapRemove;
     
-    
+    cssSystemLog("init map %lld", (long long)_this);
     return _this;
 }
 

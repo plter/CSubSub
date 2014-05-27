@@ -11,7 +11,7 @@ C语言面向对象库
 
 #C--的自动释放机制
 1. 如果指定一个对象为自动释放(autorelease)的话，cssSystem会将该对象记录
-2. 在执行cssSystemGetInstance()->gc()时，所有记录的对象都将被释放
+2. 在执行cssCall(cssSystemGetInstance(), gc)时，所有记录的对象都将被释放
 
 
 
@@ -21,15 +21,20 @@ C语言面向对象库
 #include <stdio.h>
 #include "css.h"
 
+#include <stdio.h>
+#include "css.h"
+
 int main(int argc, const char * argv[])
 {
+    
+    cssCall(cssSystemGetInstance(), logOn);
     
     cssString * str = cssStringCreateWithCString("Hello World");
     
     // insert code here...
-    printf("%s\n",str->getCString(str));
+    printf("%s\n",cssCall(str, getCString));
     
-    cssSystemGetInstance()->gc();
+    cssCall(cssSystemGetInstance(), gc);
     return 0;
 }
 

@@ -63,6 +63,8 @@ static cssString * cssFileGetStringContent(cssFile * _this){
 
 static void cssFileOnDelloc(cssFile *_this){
     
+    cssSystemLog("delloc file %s", _this->_fileName->_cstr);
+    
 	_this->_fileName->release(_this->_fileName);
 	if (_this->_currentCFile!=NULL) {
 		fclose(_this->_currentCFile);
@@ -99,6 +101,7 @@ cssFile * cssFileInit(cssFile * _this,cssString * fileName){
 	_this->getFileName = &cssFileGetFileName;
 	_this->getStringContent = &cssFileGetStringContent;
     
+    cssSystemLog("init file %s", fileName->_cstr);
 	return _this;
 }
 

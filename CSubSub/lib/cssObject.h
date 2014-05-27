@@ -32,6 +32,10 @@ extern "C" {
     } \
     return _ins; \
 }
+#define cssFunc(classType,funcName) (* funcName)(classType _this)
+#define cssFuncA(classType,funcName,args...) (* funcName)(classType _this,args)
+#define cssFuncImpl(classType,funcName) funcName(classType _this)
+#define cssFuncImplA(classType,funcName,args...) funcName(classType _this,args)
 #define cssCall(target,method) (target->method(target))
 #define cssCallA(target,method,args...) (target->method(target,args))
 #define cssCallRT(ReturnType,target,method) ((ReturnType)(cssCall(target,method)))
@@ -42,11 +46,11 @@ extern "C" {
 //TYPE is type of the class that you wanna to create
 #define cssObjectFields(TYPE) \
     int _retainCount; \
-    void (*retain)(TYPE _this); \
-    void (*release)(TYPE _this); \
-    TYPE (*autorelease)(TYPE _this); \
-    int (*retainCount)(TYPE _this); \
-    void (*onDelloc)(TYPE _this);
+    void cssFunc(TYPE,retain); \
+    void cssFunc(TYPE,release); \
+    TYPE cssFunc(TYPE,autorelease); \
+    int cssFunc(TYPE,retainCount); \
+    void cssFunc(TYPE,onDelloc);
 
 cssClass(cssObject)
 

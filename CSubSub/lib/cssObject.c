@@ -10,11 +10,11 @@
 #include "cssSystem.h"
 
 
-static void cssObjectRetain(cssObject *_this){
+static void cssFuncImpl(cssObject*,cssObjectRetain){
 	_this->_retainCount++;
 }
 
-static void cssObjectRelease(cssObject *_this){
+static void cssFuncImpl(cssObject*,cssObjectRelease){
 	_this->_retainCount--;
 	if (_this->_retainCount<=0) {
 		_this->onDelloc(_this);
@@ -22,22 +22,22 @@ static void cssObjectRelease(cssObject *_this){
 	}
 }
 
-static cssObject * cssObjectAutoRelease(cssObject * _this){
+static cssObject * cssFuncImpl(cssObject*,cssObjectAutoRelease){
     cssList * l = cssSystemGetInstance()->_pendingReleaseList;
     l->addAtLast(l,_this);
     return _this;
 }
 
-static int cssObjectRetainCount(cssObject *_this){
+static int cssFuncImpl(cssObject*,cssObjectRetainCount){
 	return _this->_retainCount;
 }
 
-static void cssObjectOnDelloc(cssObject *_this){
+static void cssFuncImpl(cssObject*,cssObjectOnDelloc){
     //
 }
 
 
-cssObject* cssObjectInit(cssObject *_this){
+cssObject* cssFuncImpl(cssObject*,cssObjectInit){
     
 	_this->_retainCount = 1;
 	_this->onDelloc = &cssObjectOnDelloc;

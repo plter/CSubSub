@@ -12,12 +12,14 @@
 int main(int argc, const char * argv[])
 {
     
+    cssCall(cssSystemGetInstance(), logOn);
+    
     cssString * str = cssStringCreateWithCString("Hello World");
     
     // insert code here...
-    printf("%s\n",str->getCString(str));
+    printf("%s\n",cssCall(str, getCString));
     
-    cssSystemGetInstance()->gc();
+    cssCall(cssSystemGetInstance(), gc);
     return 0;
 }
 
