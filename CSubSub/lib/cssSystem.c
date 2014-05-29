@@ -14,16 +14,15 @@ static void cssSystemGc(cssSystem * _this){
     
     cssObject * obj =NULL;
     while (l->_length) {
-        obj = l->get(l,0);
-        obj->release(obj);
-        l->removeAt(l,0);
+        obj = cssCallA(l, get, 0);
+        cssCall(obj, release);
+        cssCallA(l, removeAt, 0);
     }
 }
 
 static void cssSystemOnDelloc(cssSystem * _this){
-    _this->_pendingReleaseList->release(_this->_pendingReleaseList);
-    
-    _this->_onObjectDelloc(_this);
+    cssCall(_this->_pendingReleaseList, release);
+    cssCall(_this, _onObjectDelloc);
 }
 
 static void cssSystemLogOn(cssSystem * _this){

@@ -46,7 +46,7 @@ static cssString * cssFileGetStringContent(cssFile * _this){
 	if (_this->_currentCFile!=NULL) {
         
 		if (_this->_stringContent!=NULL) {
-			_this->_stringContent->release(_this->_stringContent);
+			cssCall(_this->_stringContent, release);
 		}
         
 		char buff[_this->_size+1];

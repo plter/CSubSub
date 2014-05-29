@@ -15,7 +15,7 @@ int main(int argc, const char * argv[])
     cssCall(cssSystemGetInstance(), logOn);
     cssString * str = cssStringCreateWithCString("/Users/plter/Work/gitroot/github/CSubSub/CSubSub/Data.txt");
     cssFile * f = cssFileCreate(str);
-    f->open(f,"r");
+    cssCallA(f, open, "r");
     
     printf("File Content : %s\n",f->getStringContent(f)->_cstr);
     

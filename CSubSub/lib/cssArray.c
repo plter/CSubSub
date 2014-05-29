@@ -94,7 +94,7 @@ static void cssArrayClear(cssArray * _this){
     cssObject * item;
     for (long i = 0; i <_this->_length; i++) {
         item = _this->_arr[i];
-        item->release(item);
+        cssCall(item, release);
     }
     _this->_length = 0;
 }
