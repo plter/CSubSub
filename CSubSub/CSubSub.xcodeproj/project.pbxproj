@@ -141,6 +141,7 @@
 		313BBBCD192CB22C00832B0B /* E004UsingArray */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = E004UsingArray; sourceTree = BUILT_PRODUCTS_DIR; };
 		313BBBCF192CB22D00832B0B /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		313BBBD1192CB22D00832B0B /* E004UsingArray.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = E004UsingArray.1; sourceTree = "<group>"; };
+		316C693419434BBF0058206F /* Data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Data.txt; sourceTree = "<group>"; };
 		318CF60E1931EE1E00FFDA3A /* E005UsingMap */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = E005UsingMap; sourceTree = BUILT_PRODUCTS_DIR; };
 		318CF6101931EE1E00FFDA3A /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		318CF6121931EE1E00FFDA3A /* E005UsingMap.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = E005UsingMap.1; sourceTree = "<group>"; };
@@ -150,7 +151,6 @@
 		31E13819192ACFED006DDF4D /* E002UsingFile */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = E002UsingFile; sourceTree = BUILT_PRODUCTS_DIR; };
 		31E1381B192ACFED006DDF4D /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		31E1381D192ACFED006DDF4D /* E002UsingFile.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = E002UsingFile.1; sourceTree = "<group>"; };
-		31E13822192AD01D006DDF4D /* Data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Data.txt; path = ../Data.txt; sourceTree = "<group>"; };
 		31E1382A192AD437006DDF4D /* E003UsingList */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = E003UsingList; sourceTree = BUILT_PRODUCTS_DIR; };
 		31E1382C192AD437006DDF4D /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		31E1382E192AD437006DDF4D /* E003UsingList.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = E003UsingList.1; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 		31E1381A192ACFED006DDF4D /* E002UsingFile */ = {
 			isa = PBXGroup;
 			children = (
-				31E13822192AD01D006DDF4D /* Data.txt */,
+				316C693419434BBF0058206F /* Data.txt */,
 				31E1381B192ACFED006DDF4D /* main.c */,
 				31E1381D192ACFED006DDF4D /* E002UsingFile.1 */,
 			);

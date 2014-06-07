@@ -13,7 +13,7 @@ int main(int argc, const char * argv[])
 {
 
     cssCall(cssSystemGetInstance(), logOn);
-    cssString * str = cssStringCreateWithCString("/Users/plter/Work/gitroot/github/CSubSub/CSubSub/Data.txt");
+    cssString * str = cssStringCreateWithCString("/Users/plter/Work/gitroot/github/CSubSub/CSubSub/E002UsingFile/Data.txt");
     cssFile * f = cssFileCreate(str);
     cssCallA(f, open, "r");
     
